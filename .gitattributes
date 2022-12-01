@@ -1,1 +1,1 @@
-*.Shell linguist-detectable=true
+.env.Shell -linguist-detectable
