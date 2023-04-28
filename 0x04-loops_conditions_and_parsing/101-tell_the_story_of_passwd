@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Script to print info about users based
+# + contents for /etc/passwd
+
+file="/etc/passwd"
+while IFS=":" read -r USERNAME PASSWORD USER_ID GROUP_ID USER_INFO HOME_DIR CMD_SHELL
+do
+	echo -n "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIR and rides $CMD_SHELL. "
+	echo -n "$USER_ID's place is protected by the passcode $PASSWORD, "
+	echo "more info about the user here: $USER_INFO"
+done < "$file"

@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Shell script to tally and sort log occurences
+# + in descending order
+
+awk '{print $1, $9}' apache-access.log | sort | uniq -c | sort -rn
