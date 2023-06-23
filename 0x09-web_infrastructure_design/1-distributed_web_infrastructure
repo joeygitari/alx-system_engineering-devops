@@ -1,0 +1,13 @@
+https://imgur.com/a/mXiDG8X
+
+# Network overview
+The infrastructure consists of two servers, one load balancer, and one database.
+The load balancer distributes user requests between the two servers based on a weighted scheduling algorithm.
+The load balancer enables an active-passive setup, where both nodes (servers) run simultaneously.
+Master-slave replication enables data from one database server (the master) to be replicated to one or more other database servers (the slaves).
+The replica node is on another node from the primary that ensures access to data in the event of a primary node failure.
+
+# Issues
+Without a firewall in the infrastructure, all unwanted IP addresses can access the resources.
+No HTTPS means that the data users’ access is not encrypted, and in case of phishing, their content can be read by attackers in case of an attack.
+Without monitoring, the server and client errors cannot be identified and hence cannot take appropriate measures.
