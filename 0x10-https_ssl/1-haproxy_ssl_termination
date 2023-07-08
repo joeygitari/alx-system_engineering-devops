@@ -45,24 +45,24 @@ defaults
         option forwardfor
         option http-server-close
 
-#--iamnato.tech-params-begin--
-backend iamnato.tech-backend
+#--joeygitari.tech-params-begin--
+backend joeygitari.tech-backend
         redirect scheme https if !{ ssl_fc }
         balance roundrobin
         server 106387-web-01 107.21.42.87:80 check
         server 106387-web-02 34.207.121.230:80 check
-frontend iamnato.tech-http-frontend
+frontend joeygitari.tech-http-frontend
         bind *:80
         http-request set-header X-Forwarded-Proto http
-        default_backend iamnato.tech-backend
+        default_backend joeygitari.tech-backend
 
-frontend iamnato.tech-https-frontend
-        bind *:443 ssl crt /etc/haproxy/certs/iamnato.tech.pem
+frontend joeygitari.tech-https-frontend
+        bind *:443 ssl crt /etc/haproxy/certs/joeygitari.tech.pem
         http-request set-header X-Forwarded-Proto https
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
-        default_backend iamnato.tech-backend
-#--iamnato.tech-params-end--
+        default_backend joeygitari.tech-backend
+#--joeygitari.tech-params-end--
 
 backend letsencrypt-backend
    server letsencrypt 127.0.0.1:54321
