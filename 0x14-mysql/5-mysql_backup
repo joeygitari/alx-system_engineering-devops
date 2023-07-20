@@ -1,9 +1,4 @@
 #!/usr/bin/env bash
-# Script to back and mysl databases and compress them
-# Usage: ./5-mysql_backup <password>
-
-if [ $# -gt 0 ]; then
-	mysqldump -u root -p "$1" --all-databases --result-file=backup.sql
-	date=$(date +%d-%m-%Y)
-	tar -czf "$date.tar.gz" backup.sql
-fi
+# script to add backup and compress for sql dbs
+mysqldump --all-databases -uroot -p"$1" > backup.sql
+tar -cvzf "$(date +%d-%m-%Y).tar.gz" backup.sql
